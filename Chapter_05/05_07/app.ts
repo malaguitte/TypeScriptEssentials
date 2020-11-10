@@ -10,6 +10,28 @@ enum TodoState {
     Deleted = 4
 };
 
+class TodoService {
+    private static lastId: number = 0;
+
+    constructor(private todos: Todo[]) {}
+
+    get nextId() {
+        return TodoService.lastId + 1;
+    }
+
+    set nextId(id) {
+        TodoService.lastId = id - 1;
+    }
+    
+    public add(todo: Todo): void {
+
+    }
+
+    protected getAll() : Todo[] {
+        return this.todos;
+    }
+}
+
 abstract class TodoStateChanger {
     constructor(private newState: TodoState) {
     }
@@ -43,3 +65,8 @@ class CompleteTodoStateChanger extends TodoStateChanger {
     }
 }
 
+class SmartTodo {
+    constructor(public name: string) {
+        this.name = name;
+    }
+}
