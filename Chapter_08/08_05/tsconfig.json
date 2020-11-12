@@ -3,6 +3,7 @@
         "target": "ES5",
         "module": "CommonJS",
         "lib": ["ES6", "DOM"],
-        "declaration": true
+        "declaration": true,
+        "sourceMap": true
     }
 }
