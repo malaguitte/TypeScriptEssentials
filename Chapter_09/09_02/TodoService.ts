@@ -31,7 +31,6 @@ class TodoService implements ITodoService {
         }
     }
 
-
     // Accepts a todo name or todo object
     add(todo: Todo): void
     add(todo: string): void
@@ -39,8 +38,7 @@ class TodoService implements ITodoService {
     add(input): void {
 
         const todo = new ValidatableTodo();
-        todo.id = generateTodoId()
-        todo.name = null;
+        todo.id = generateTodoId();
         todo.state = TodoState.Active;
 
         if (typeof input === "string") {
