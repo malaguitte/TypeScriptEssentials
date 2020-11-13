@@ -1,0 +1,14 @@
+#ignorning node_modules directory
+node_modules/
+
+
+## Ignoring generated files below:
+
+#ignoring js files
+*.js
+
+#ignoring .js.map files
+*.js.map
+
+#ignoring .d.ts files
+*.d.ts
