@@ -10,22 +10,22 @@ class ValidatableTodo implements Todo {
 interface ValidatableTodo extends IValidatable {}
 
 interface IValidatable {
-    getValidationErrors(): IValidatableResult[];
+    getValidationErrors(): IValidationResult[];
 }
 
-interface IValidatableResult {
+interface IValidationResult {
     isValid: boolean;
     message: string;
     property?: string;
 }
 
 interface IValidator {
-    (instance: Object): IValidatableResult;
+    (instance: Object): IValidationResult;
 }
 
-function getValidationErrors(): IValidatableResult[] {
+function getValidationErrors(): IValidationResult[] {
     const validators: IValidator[] = this._validators !== undefined ? this._validators : [];
-    let errors: IValidatableResult[] = [];
+    let errors: IValidationResult[] = [];
     validators.forEach(validator => {
         const result = validator(this);
         if (!result.isValid) {
@@ -35,6 +35,9 @@ function getValidationErrors(): IValidatableResult[] {
     return errors;
 }
 
+/**
+ * Class decorator
+ */
 function validatable(targetClass: Function) {
     targetClass.prototype.getValidationErrors = getValidationErrors;
 }
@@ -42,7 +45,7 @@ function validatable(targetClass: Function) {
 export {
     ValidatableTodo,
     IValidatable,
-    IValidatableResult,
+    IValidationResult,
     IValidator,
     validatable,
     getValidationErrors
