@@ -1,0 +1,17 @@
+{
+  "name": "ts_todo",
+  "version": "1.0.0",
+  "description": "TypeScript Todo App",
+  "main": "app.js",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anderson Malaguitte",
+  "license": "ISC"
+}
