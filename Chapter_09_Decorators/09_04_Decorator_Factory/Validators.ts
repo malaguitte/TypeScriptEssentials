@@ -75,7 +75,9 @@ function required(target: Object, propertyName: string): void {
 }
 
 
-
+/**
+ * Decorator factory
+ */
 function regexValidator(pattern: string) {
     return function regex(target: Object, propertyName: string) {
         const regexExpression = new RegExp(pattern);
